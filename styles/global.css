@@ -1,0 +1,201 @@
+:root {
+    --bg-color: #f4f5f6;
+    --card-bg: #ffffff;
+    --primary-color: #d13b7b;
+    --primary-hover: #b02e64;
+    --text-color: #333333;
+    --text-secondary: #777777;
+    --border-color: #e1e1e1;
+    --danger-color: #e04a4a;
+    --alert-bg: #fce4ec;
+    --alert-text: #c2185b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.brand {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand::before {
+    content: "≡";
+    font-size: 28px;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.back-link:hover {
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+}
+
+button.btn-add {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button.btn-add:hover {
+    background-color: var(--primary-hover);
+}
+
+.shopping-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.shopping-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.shopping-item:hover {
+    background-color: #fafafa;
+}
+
+.item-text {
+    font-size: 16px;
+    color: #4a4a4a;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-text.completed {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.btn-delete:hover {
+    color: var(--danger-color);
+}
+
+.alert {
+    background-color: var(--alert-bg);
+    color: var(--alert-text);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.alert.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.alert-close {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Ajustes automáticos para celular */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px 15px;
+        margin-top: 10px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    button.btn-add {
+        width: 100%;
+    }
+}
